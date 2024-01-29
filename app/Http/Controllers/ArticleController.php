@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -36,6 +35,22 @@ class ArticleController extends Controller
         return redirect()->route('articles.index')
                          ->with('success', 'Article updated with success');
     }
+
+    public function create() {
+        return view('create');
+    } 
+
+    public function store(Request $request) {
+        
+        $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+        ]);
+
+        Article::create($request->all());
+        return redirect()->route('articles.index')
+                         ->with('success', 'Article created with success');
+    } 
 
     public function delete(int $id) {
         Article::findOrFail($id)->delete();    
