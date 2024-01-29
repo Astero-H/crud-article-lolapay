@@ -19,11 +19,22 @@ class ArticleController extends Controller
     }
 
     public function edit(int $id) {
-        // edit article
+        $article = Article::findOrFail($id);
+        return view('edit', compact('article'));
     }
 
     public function update(Request $request, int $id) {
-       // update article
+
+        $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+        ]);
+
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+
+        return redirect()->route('articles.index', $article->id)
+                         ->with('success', 'Article updated with success');
     }
 
 }
