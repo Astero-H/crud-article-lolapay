@@ -58,3 +58,7 @@ form {
     transform: translate(-50%, -50%); 
 }
 
+.edit-create{
+    float: right;
+}
+

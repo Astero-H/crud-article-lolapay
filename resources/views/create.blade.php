@@ -26,7 +26,7 @@
             <textarea class="form-control" id="content" name="content" required></textarea>
         </div><br>
 
-        <button type="submit" class="btn btn-success">Create new article</button>
+        <button type="submit" class="btn btn-success">Create </button>
         <button type="button" onclick="window.location='{{ URL::route('articles.index') }}'" class="btn btn-primary">Cancel</button>
     </form>
 

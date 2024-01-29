@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Edit article</h1>
-
+    <h1>Edit article</h1>
+    
     @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Oops !</strong> Errors encountered with your input.<br><br>
@@ -30,6 +30,7 @@
 
         <button type="submit" class="btn btn-success">Update</button>
         <button type="button" onclick="window.location='{{ URL::route('articles.index') }}'" class="btn btn-primary">Cancel</button>
+        <a href="{{ route('articles.create') }}" class="btn btn-primary edit-create">Create an article</a>
     </form>
 
 @endsection
