@@ -28,7 +28,8 @@
             <textarea class="form-control" id="content" name="content" required>{{ $article->content }}</textarea>
         </div><br>
 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-success">Update</button>
+        <button type="button" onclick="window.location='{{ URL::route('articles.index') }}'" class="btn btn-primary">Cancel</button>
     </form>
 
 @endsection
