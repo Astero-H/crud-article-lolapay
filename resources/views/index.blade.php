@@ -15,7 +15,12 @@
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{ route('article.show', $article->id) }}" class="article-desc">{{ $article->title }}</a></h5>
                     <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-success">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <form action = {{ route('articles.delete', $article->id) }} method = "POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete the article {{ $article->id }} ?')"> Delete</button>
+                    </form>
+                    
                 </div>
             </div>
         @endforeach

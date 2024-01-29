@@ -33,8 +33,12 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         $article->update($request->all());
 
-        return redirect()->route('articles.index', $article->id)
+        return redirect()->route('articles.index')
                          ->with('success', 'Article updated with success');
     }
 
+    public function delete(int $id) {
+        Article::findOrFail($id)->delete();    
+        return back()->with('success', 'Article deleted with success');;
+    }
 }
