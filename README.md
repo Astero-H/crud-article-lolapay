@@ -11,8 +11,25 @@ git clone https://github.com/Astero-H/crud-article-test.git
 cd crud-article-test
 composer install
 cp .env.example .env
-php artisan key:generate
 
+```
+1) With Docker :
+
+```bash
+docker-compose up --build
+```
+- Open the '.env' et modify the 'DB_' options to fit with your database configuration.
+- In docker-compose.yml modify MYSQL_DATABASE and MYSQL_ROOT_PASSWORD fields
+
+```bash
+docker-compose exec app sh -c "php artisan key:generate && php artisan migrate && php artisan db:seed"
+```
+
+
+2) Without Docker :
+
+```bash
+php artisan key:generate
 ```
 
 - Create a database for the project
