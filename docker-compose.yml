@@ -13,10 +13,8 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_USER: root
-      MYSQL_DATABASE: #changeMe##
-      MYSQL_ROOT_PASSWORD:  #changeMe##
-      MYSQL_PASSWORD:  #changeMe##
+      MYSQL_DATABASE: "changeMe"
+      MYSQL_ROOT_PASSWORD:  "changeMe"
     volumes:
       - dbdata:/var/lib/mysql
 

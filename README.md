@@ -9,6 +9,23 @@ Follow those steps :
 ```bash
 git clone https://github.com/Astero-H/crud-article-test.git
 cd crud-article-test
+
+```
+1) With Docker :
+
+```bash
+docker-compose up --build
+```
+- Open the '.env' et modify the 'DB_' options to fit with your database configuration.
+
+```bash
+docker-compose exec app sh -c "cp .env.example .env && php artisan key:generate && php artisan migrate && php artisan db:seed"
+```
+
+
+2) Without Docker :
+
+```bash
 composer install
 cp .env.example .env
 php artisan key:generate
