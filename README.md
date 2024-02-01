@@ -24,7 +24,13 @@ cd crud-article-lolapay
  cp .env.example .env
 ```
 
-* Generate the application key
+* Install Dependencies
+
+```bash
+composer install
+```
+
+* Generate key application
 
 ```bash
 php artisan key:generate
@@ -33,8 +39,6 @@ php artisan key:generate
 ## Database Configuration
 
 ### With Docker:
-
-* Modify the .env.example file to match your database configuration.
 
 * Start Docker containers
 
@@ -45,28 +49,21 @@ docker-compose up --build
 
 ### Without Docker:
 
-1. Install Dependencies
+1. Create a database for the project
 
-```bash
-composer install
-```
-
-2. Create a database for the project
-
-
-3. Run migrations:
+2. Run migrations:
 
 ```bash
 php artisan migrate
 ```
 
-4. Fill the database with fake data (optional):
+3. Fill the database with fake data (optional):
 
 ```bash
 php artisan db:seed
 ```
 
-5. Start the server:
+4. Start the server:
 ```bash
 php artisan serve
 ```
