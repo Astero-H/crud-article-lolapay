@@ -1,5 +1,10 @@
 FROM php:8.1-apache
 
+# Init script
+COPY init.sh /usr/local/bin/init.sh
+RUN chmod +x /usr/local/bin/init.sh
+CMD ["/usr/local/bin/init.sh"]
+
 # PHP dependencies
 RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo pdo_mysql \
