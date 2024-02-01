@@ -7,6 +7,7 @@ services:
     volumes:
       - .:/var/www/html
     environment:
+      - APP_KEY=${APP_KEY}
       - DB_CONNECTION=${DB_CONNECTION}
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
@@ -22,6 +23,7 @@ services:
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+
     volumes:
       - dbdata:/var/lib/mysql
 
