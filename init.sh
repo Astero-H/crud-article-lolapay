@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# Copy .env.example to .env if .env do not exist
-if [ ! -f ".env" ]; then
-  cp .env.example .env
-fi
+echo "Waiting for database..."
+while ! mysqladmin ping -h"$DB_HOST" --silent; do
+    echo "Waiting for database at the adress : $DB_HOST..."
+    sleep 1
+done
 
-# Generate app key
-php artisan key:generate --no-interaction
 
 # Exec migrations and seeding
 php artisan migrate --no-interaction
