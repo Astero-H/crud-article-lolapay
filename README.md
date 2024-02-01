@@ -11,21 +11,14 @@ Ultra simple CRUD to handle articles
 
 ## Installation
 
-1. Clone the repository
+* Clone the repository
 
 ```bash
 git clone https://github.com/Astero-H/crud-article-test.git
 cd crud-article-test
 ```
 
-2. Install Dependencies
-
-```bash
-composer install
-```
-
 ## Database Configuration
-
 
 ### With Docker:
 
@@ -40,29 +33,41 @@ docker-compose up --build
 
 ### Without Docker:
 
-* Create a database for the project.
+1. Install Dependencies
 
-* Open the .env file and modify the DB_ options to match your database configuration.
+```bash
+composer install
+```
 
-* Generate the application key:
+2. Create a database for the project
+
+
+3. Create .env file and modify it
+
+```bash
+ cp .env.example .env
+```
+
+4. Generate the application key
 
 ```bash
 php artisan key:generate
 ```
 
-* Run migrations:
+
+5. Run migrations:
 
 ```bash
 php artisan migrate
 ```
 
-* Fill the database with fake data (optional):
+6. Fill the database with fake data (optional):
 
 ```bash
 php artisan db:seed
 ```
 
-* Start the server:
+7. Start the server:
 ```bash
 php artisan serve
 ```
