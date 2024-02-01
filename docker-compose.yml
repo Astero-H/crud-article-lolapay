@@ -6,6 +6,13 @@ services:
       - "8000:80"
     volumes:
       - .:/var/www/html
+    environment:
+      - DB_CONNECTION=${DB_CONNECTION}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       - db
 
@@ -13,8 +20,8 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: "changeMe"
-      MYSQL_ROOT_PASSWORD:  "changeMe"
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - dbdata:/var/lib/mysql
 
